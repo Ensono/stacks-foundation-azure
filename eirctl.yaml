@@ -26,6 +26,6 @@ pipelines:
 
   release:
     - task: build:number
-    - task: _release
+    - task: github:release
       depends_on:
         - build:number
