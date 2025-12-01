@@ -23,7 +23,7 @@ tasks:
       - terraform-docs -c .terraform-docs.yml src/
 
   terraform:init:
-    context: powershell
+    context: infra
     description: Initialise Terraform for Azure
     command: |
       cd $env:TF_FILE_LOCATION
