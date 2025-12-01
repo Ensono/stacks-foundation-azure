@@ -1,0 +1,80 @@
+tasks:
+  build:number:
+    context: powershell
+    command:
+      - Update-BuildNumber -BuildNumber $env:BUILD_BUILDNUMBER
+
+  lint:yaml:
+    context: infra
+    description: Perform YAML linting
+    command:
+      - Invoke-YamlLint -FailOnWarnings $False
+
+  lint:terraform:format:
+    context: infra
+    description: Perform Terraform format check
+    command:
+      - Invoke-Terraform -Format -Path $env:TF_FILE_LOCATION -Debug
+
+  terraform:docs:
+    description: Generate documentation for the Terraform modules
+    context: infra
+    command:
+      - terraform-docs -c .terraform-docs.yml src/
+
+  terraform:init:
+    context: powershell
+    description: Initialise Terraform for Azure
+    command: |
+      cd $env:TF_FILE_LOCATION
+      terraform init -backend=false
+
+  terraform:tests:
+    description: Run Terraform tests
+    context: infra
+    command: |
+      cd $env:TF_FILE_LOCATION
+      terraform test -test-directory=tests
+
+  docs:docbook:
+    description: Convert documentation to Docbook for conversion to markdown
+    context: asciidoc
+    command:
+      - asciidoctor -b docbook -o outputs/tmp/README.xml docs/readme/index.adoc
+
+  docs:markdown:
+    description: Convert the Dockbook readme to markdown
+    context: asciidoc
+    command:
+      - pandoc -f docbook -t gfm -o outputs/module/README.md outputs/tmp/README.xml
+
+  docs:generate:
+    description: Build Docs for the module
+    context: asciidoc
+    command: |
+      Build-Documentation -Config /eirctl/docs/repository/conf/docs.json
+
+  build:clean:
+    description: Clean the outputs folder
+    context: powershell
+    command: |
+      Remove-Item -Path outputs -Recurse -Force -ErrorAction SilentlyContinue
+      if (!(Test-Path -Path outputs/module)) { (New-Item -ItemType Directory -Path outputs/module) }
+
+  build:copy:
+    description: Copy the src Terraform into the outputs/module folder
+    context: powershell
+    command: |
+      Copy-Item -Path src/* -Destination outputs/module/ -Recurse -Force -Exclude tests,.terraform,.terraform.lock.hcl
+
+  build:package:
+    description: Create the zip package for the Terraform module
+    context: powershell
+    command: |
+      Compress-Archive -Path outputs/module/* -DestinationPath outputs/stacks-foundation-azure-${env:BUILDNUMBER}.zip -Force
+
+  github:release:
+    context: powershell
+    command:
+      - Write-Host "Publish-GitHubRelease -version $env:BUILD_BUILDNUMBER -commitId $env:COMMIT_ID -apikey $env:GITHUB_TOKEN -artifactsDir $env:ARTIFACTS_DIR -Owner $env:OWNER -repository $env:REPOSITORY"
+      - Publish-GitHubRelease -version $env:BUILD_BUILDNUMBER -commitId $env:COMMIT_ID -apikey $env:GITHUB_TOKEN -artifactsDir $env:ARTIFACTS_DIR -Owner $env:OWNER -repository $env:REPOSITORY

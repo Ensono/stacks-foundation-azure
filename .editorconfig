@@ -1,0 +1,9 @@
+root = true
+
+# Specifically for YAML files
+[*.yml]
+end_of_line = lf
+
+
+[*.yaml]
+end_of_line = lf
