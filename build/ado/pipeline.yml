@@ -129,7 +129,7 @@ stages:
 
       - job: create_package
         displayName: Create Package
-        depends_on:
+        dependsOn:
           - unit_tests
         pool:
           vmImage: $(pool_vm_image)
