@@ -1,0 +1,24 @@
+=== regions
+
+Complete Azure region information from the Azure Regions utility module.
+
+**Type:** `object`
+
+**Usage:**
+[source,hcl]
+----
+# Get region geo code
+locals {
+  region_code = module.foundation.regions.regions_by_name[var.location].geo_code
+}
+
+# Get paired region
+locals {
+  dr_region = module.foundation.regions.regions_by_name[var.location].paired_region_name
+}
+
+# Get availability zones
+locals {
+  zones = module.foundation.regions.regions_by_name[var.location].zones
+}
+----

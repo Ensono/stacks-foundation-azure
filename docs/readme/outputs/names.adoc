@@ -1,0 +1,31 @@
+=== names
+
+Complete Azure Naming module output for each project.
+
+**Type:** `map(object)`
+
+**Structure:**
+[source,hcl]
+----
+{
+  "project_name" = {
+    resource_group = {
+      name        = "rg-enso-proj-uks-dev"
+      name_unique = "rg-enso-proj-uks-dev-abcd"
+      # ... other attributes
+    }
+    storage_account = { ... }
+    key_vault = { ... }
+    # ... all Azure resource types
+  }
+}
+----
+
+**Usage:**
+[source,hcl]
+----
+resource "azurerm_resource_group" "main" {
+  name     = module.foundation.names["webapp"].resource_group.name
+  location = var.location
+}
+----

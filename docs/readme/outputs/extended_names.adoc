@@ -1,0 +1,14 @@
+=== extended_names
+
+Custom naming for Azure resources not covered by the base Azure Naming module.
+
+**Type:** `map(object)`
+
+**Usage:**
+[source,hcl]
+----
+resource "azurerm_frontdoor_firewall_policy" "main" {
+  name = module.foundation.extended_names["webapp"].frontdoor_firewall_policy.name
+  # ... other configuration
+}
+----

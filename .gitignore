@@ -374,6 +374,7 @@ coverage
 .sonarqube
 
 outputs
+!docs/readme/outputs
 
 .vscode/settings.json
 
