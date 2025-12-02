@@ -75,7 +75,8 @@ resource "azurerm_resource_group" "example" {
 }
 ```
 
-> **Note**: When using a zip file as the source (Options 1 or 2), run `terraform init` to download and extract the module. Terraform handles the extraction automatically.
+> [!NOTE]
+> When using a zip file as the source (Options 1 or 2), run `terraform init` to download and extract the module. Terraform handles the extraction automatically.
 
 ### Module Outputs
 

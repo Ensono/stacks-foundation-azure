@@ -8,9 +8,9 @@ No requirements.
 [cols="a,a",options="header,autowidth"]
 |===
 |Name |Version
-|[[provider_local]] <<provider_local,local>> |2.6.1
-|[[provider_random]] <<provider_random,random>> |3.7.2
-|[[provider_time]] <<provider_time,time>> |0.13.1
+|[[provider_local]] <<provider_local,local>> |n/a
+|[[provider_random]] <<provider_random,random>> |n/a
+|[[provider_time]] <<provider_time,time>> |n/a
 |===
 
 == Modules
