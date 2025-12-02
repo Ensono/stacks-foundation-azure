@@ -1,6 +1,6 @@
 === Key Features
 
-* Integration with Azure Naming module (v0.4.2)
+* Integration with Azure Naming module
 * Azure Regions utility for intelligent region selection
 * Workspace-aware naming for environment differentiation
 * Configurable short name lengths to meet Azure resource constraints

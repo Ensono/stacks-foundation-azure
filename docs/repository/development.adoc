@@ -171,7 +171,7 @@ The module uses pinned versions for external dependencies:
 # src/naming.tf
 module "azure_naming" {
   source  = "Azure/naming/azurerm"
-  version = "0.4.2"  # Update when needed
+  # Note: No version constraint - uses latest available
 }
 
 # src/regions.tf

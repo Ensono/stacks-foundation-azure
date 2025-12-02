@@ -71,7 +71,7 @@ tasks:
     description: Create the zip package for the Terraform module
     context: powershell
     command: |
-      Compress-Archive -Path outputs/module/* -DestinationPath outputs/stacks-foundation-azure-${env:BUILDNUMBER}.zip -Force
+      Compress-Archive -Path outputs/module/* -DestinationPath outputs/stacks-foundation-azure-${env:BUILD_BUILDNUMBER}.zip -Force
 
   github:release:
     context: powershell

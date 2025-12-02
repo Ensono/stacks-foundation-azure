@@ -12,11 +12,11 @@ stacks-foundation-azure/
 │   ├── random_string.tf          # Unique seed generation
 │   ├── time_static.tf            # State time tracking
 │   ├── envvar_files.tf           # Environment file generation
-│   └── providers.tf              # Provider configuration
-├── templates/                    # Template files for env generation
-│   ├── envvars.bash.tpl          # Bash environment variables
-│   ├── envvars.ps1.tpl           # PowerShell environment variables
-│   └── inputs.auto.tfvars.tpl    # Terraform auto-variables
+│   ├── providers.tf              # Provider configuration
+│   └── templates/                # Template files for env generation
+│       ├── envvars.bash.tpl      # Bash environment variables
+│       ├── envvars.ps1.tpl       # PowerShell environment variables
+│       └── inputs.auto.tfvars.tpl  # Terraform auto-variables
 ├── docs/                         # Documentation
 │   ├── REPOSITORY.adoc           # Legacy single-file repo guide
 │   ├── repository/               # Repository documentation (modular)

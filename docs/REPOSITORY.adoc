@@ -849,14 +849,14 @@ When adding new features, update this coverage matrix and create corresponding t
 
 ==== Module Dependencies
 
-The module uses pinned versions for external dependencies:
+The module uses external dependencies:
 
 [source,hcl]
 ----
 # src/naming.tf
 module "azure_naming" {
   source  = "Azure/naming/azurerm"
-  version = "0.4.2"  # Update when needed
+  # Note: No version constraint - uses latest available
 }
 
 # src/regions.tf
