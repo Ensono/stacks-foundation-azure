@@ -1,0 +1,5 @@
+=== seed
+
+The random 4-character seed used in all resource naming.
+
+**Type:** `string`

@@ -1,0 +1,5 @@
+=== computed_outputs
+
+Processed outputs from the `outputs` variable (used for environment file generation).
+
+**Type:** `map(any)`

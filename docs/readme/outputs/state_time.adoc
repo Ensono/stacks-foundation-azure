@@ -1,0 +1,14 @@
+=== state_time
+
+Static timestamp captured when the module was first applied.
+
+**Type:** `string`
+
+**Usage:**
+[source,hcl]
+----
+# Add creation timestamp to resources
+tags = {
+  CreatedAt = module.foundation.state_time.rfc3339
+}
+----
