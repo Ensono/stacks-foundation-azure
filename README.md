@@ -24,7 +24,7 @@ Terraform can consume the zip file **directly** without extraction. You have thr
 ```hcl
 module "foundation" {
   source = "https://github.com/ensono/stacks-foundation-azure/releases/stacks-foundation-azure-0.0.3.zip"
-  
+
   company_name = "MyCompany"
   location     = "uksouth"
   project      = ["webapp"]
@@ -38,7 +38,7 @@ module "foundation" {
 ```hcl
 module "foundation" {
   source = "./path/to/stacks-foundation-azure.zip"
-  
+
   company_name = "MyCompany"
   location     = "uksouth"
   project      = ["webapp"]
@@ -57,7 +57,7 @@ unzip stacks-foundation-azure.zip -d ./modules/foundation
 ```hcl
 module "foundation" {
   source = "./modules/foundation"
-  
+
   company_name = "MyCompany"
   location     = "uksouth"
   project      = ["webapp"]
@@ -75,7 +75,8 @@ resource "azurerm_resource_group" "example" {
 }
 ```
 
-> **Note**: When using a zip file as the source (Options 1 or 2), run `terraform init` to download and extract the module. Terraform handles the extraction automatically.
+> [!NOTE]
+> When using a zip file as the source (Options 1 or 2), run `terraform init` to download and extract the module. Terraform handles the extraction automatically.
 
 ### Module Outputs
 
@@ -93,6 +94,8 @@ For developers working on this repository:
 
 ```bash
 # Install eirctl (Ensono Infrastructure CLI)
+# Set the build number
+export BUILD_BUILDNUMBER=$(eirctl build:number)
 # Run the build pipeline
 eirctl build
 
