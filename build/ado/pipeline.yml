@@ -162,6 +162,7 @@ stages:
               artifactName: readme
 
   - stage: release
+    displayName: Release Module
     dependsOn:
       - build
     condition: and(succeeded(), or(eq(variables['Build.SourceBranch'], 'refs/heads/main'), eq(${{ parameters.pre_release }}, true)))
