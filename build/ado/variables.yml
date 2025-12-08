@@ -13,5 +13,10 @@ variables:
   - name: EirctlVersion
     value: 0.9.7
 
+  - name: RepoOwner
+    value: Ensono
+  - name: RepoName
+    value: stacks-foundation-azure
+
   - name: pool_vm_image
     value: ubuntu-24.04
