@@ -209,8 +209,8 @@ stages:
               STAGE: "release"
               PUBLISH_RELEASE: "true"
               GITHUB_TOKEN: "$(GITHUB_TOKEN)"
-              OWNER: $(RepoOwner)
-              REPOSITORY: $(RepoName)
+              OWNER: Ensono
+              REPOSITORY: stacks-foundation-azure
               BUILD_BUILDNUMBER: $(BUILD_BUILDNUMBER)
               COMMIT_ID: $(Build.SourceVersion)
               ARTIFACTS_DIR: /eirctl/outputs/assets
