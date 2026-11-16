@@ -1,7 +1,62 @@
 === Structure
 
-The module generates resource names with the following structure:
+By default, the module generates unique resource names with the following
+structure:
 
 ----
 <resource-prefix>-<company-short>-<project-short>-<region-code>-<workspace>-<seed>
 ----
+
+The `name` output omits the seed; `name_unique` appends it before applying
+resource-specific length limits. Resource-specific naming rules can also
+change the separators.
+
+=== Configuring the Suffix
+
+The company, project, location, and workspace components are optional. Each
+flag defaults to `true`; set it to `false` to omit that component:
+
+[cols="2,2"]
+|===
+|Variable |Component
+
+|`suffix_include_company_name` |Short company name
+|`suffix_include_project_name` |Short project name
+|`suffix_include_location` |Region code
+|`suffix_include_workspace` |Terraform workspace
+|===
+
+The remaining components retain their original order, without empty
+separators. The resource prefix and unique-name seed are not controlled by
+these flags. Setting all four flags to `false` leaves only the resource
+prefix and, for `name_unique`, the seed.
+
+For example:
+
+[source,hcl]
+----
+module "foundation" {
+  source = "./stacks-foundation-azure"
+
+  company_name = "Ensono"
+  location     = "uksouth"
+  project      = ["webapp"]
+  stage_name   = "foundation"
+  environment  = "dev"
+  outputs      = jsonencode({ dev = {} })
+
+  suffix_include_company_name = false
+  suffix_include_location     = false
+}
+----
+
+With the `dev` workspace, the resource group `name` is `rg-weba-dev`, and
+its `name_unique` is `rg-weba-dev-<seed>`.
+
+[WARNING]
+====
+Changing these flags changes generated names and may cause existing resources
+to be replaced. Omitting the project or workspace component can also cause
+name collisions across projects or environments. Projects in the same module
+share the seed, so the seed alone does not distinguish their names.
+====

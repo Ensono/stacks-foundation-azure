@@ -7,12 +7,13 @@ module "azure_naming" {
 
   unique-seed = random_string.random_seed.result
 
-  suffix = tolist(
+  # Build up the suuffix that is used for the naming
+  suffix = compact(tolist(
     [
-      local.company_name_short,
-      substr(each.key, 0, var.short_name_length),
-      module.azure_regions.regions_by_name[var.location].geo_code,
-      terraform.workspace
+      var.suffix_include_company_name ? local.company_name_short : "",
+      var.suffix_include_project_name ? substr(each.key, 0, var.short_name_length) : "",
+      var.suffix_include_location ? module.azure_regions.regions_by_name[var.location].geo_code : "",
+      var.suffix_include_workspace ? terraform.workspace : ""
     ]
-  )
+  ))
 }

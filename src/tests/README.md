@@ -55,6 +55,12 @@ Tests Terraform workspace integration:
 - Workspace name included in resource names
 - Naming structure validation
 
+### `suffix_configuration.tftest.hcl`
+Tests configurable naming suffix components:
+- Default component order and individual inclusion flags
+- Combined exclusions, custom short names, and multiple projects
+- Empty suffixes and propagation to unique and extended names
+
 ## Important Note
 
 All tests include a required `outputs` variable that is used by the module to generate environment files. This variable must be a JSON-encoded string containing environment-specific outputs.
