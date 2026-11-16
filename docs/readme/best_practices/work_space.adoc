@@ -19,5 +19,7 @@ terraform apply
 
 [WARNING]
 ====
-Always verify the active workspace before applying changes. Resource names include the workspace name, so incorrect workspace selection will deploy to the wrong environment.
+Always verify the active workspace before applying changes. By default, resource
+names include the workspace name; disabling `suffix_include_workspace` removes
+that distinction from names and can cause collisions between environments.
 ====

@@ -5,8 +5,8 @@
 **Solution:**
 
 1. Destroy and recreate the `random_string` resource
-2. Use a different workspace
-3. Change the project name
+2. Use a different workspace if `suffix_include_workspace` is enabled
+3. Change the project name if `suffix_include_project_name` is enabled
 
 [source,bash]
 ----
