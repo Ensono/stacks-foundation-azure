@@ -84,6 +84,7 @@ tasks:
     description: Runs pre-commit hooks
     command:
       - |
+        unset GIT_EXEC_PATH
         .eirctl/bin/prek run --all-files
 
   install:prek:
