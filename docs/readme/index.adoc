@@ -37,4 +37,4 @@ For issues, questions, or contributions related to this module, please contact t
 
 Copyright (c) 2025 Ensono
 
-This project is licensed under the MIT License.  
+This project is licensed under the MIT License.

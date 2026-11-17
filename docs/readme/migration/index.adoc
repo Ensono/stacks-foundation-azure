@@ -3,4 +3,3 @@
 include::manual.adoc[]
 
 include::other.adoc[]
-

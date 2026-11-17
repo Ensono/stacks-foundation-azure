@@ -2,9 +2,9 @@
 
 ## Project Overview
 
-**Project Name:** Stacks Foundation Azure  
-**Organization:** Ensono  
-**Type:** Terraform Foundation Module  
+**Project Name:** Stacks Foundation Azure
+**Organization:** Ensono
+**Type:** Terraform Foundation Module
 **Purpose:** Foundational Terraform module providing standardized naming conventions and regional configurations for Azure resources across Ensono Stacks infrastructure deployments.
 
 ## What This Project Does

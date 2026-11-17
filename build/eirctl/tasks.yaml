@@ -78,3 +78,22 @@ tasks:
     command:
       - Write-Host "Publish-GitHubRelease -version $env:BUILD_BUILDNUMBER -commitId $env:COMMIT_ID -apikey $env:GITHUB_TOKEN -artifactsDir $env:ARTIFACTS_DIR -Owner $env:OWNER -repository $env:REPOSITORY"
       - Publish-GitHubRelease -version $env:BUILD_BUILDNUMBER -commitId $env:COMMIT_ID -apikey $env:GITHUB_TOKEN -artifactsDir $env:ARTIFACTS_DIR -Owner $env:OWNER -repository $env:REPOSITORY
+
+  precommit:run:
+    context: prek
+    description: Runs pre-commit hooks
+    command:
+      - |
+        .eirctl/bin/prek run --all-files
+
+  install:prek:
+    description: Install Prek
+    context: prek
+    command:
+      - |
+        mkdir -p .eirctl/bin
+        apk add curl
+        curl --proto '=https' --tlsv1.2 -LsSf https://github.com/j178/prek/releases/download/v0.5.2/prek-installer.sh | sh
+    env:
+      XDG_BIN_HOME: .eirctl/bin
+      PREK_NO_MODIFY_PATH: 1

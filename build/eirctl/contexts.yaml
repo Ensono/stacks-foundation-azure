@@ -31,3 +31,12 @@ contexts:
       exclude:
         - sourceversionmessage
         - posh_azure_subscription
+
+  prek:
+    container:
+      name: docker.io/alpine/git:v2.54.0
+      pull_timeout: 0
+      entrypoint: ["/usr/bin/env"]
+      shell: sh
+      shell_args:
+        - -c
