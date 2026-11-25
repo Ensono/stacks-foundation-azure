@@ -7,7 +7,7 @@ module "azure_naming" {
 
   unique-seed = random_string.random_seed.result
 
-  # Build up the suffix that is used for the naming
+  # Build up the suffix that is used for the naming
   suffix = compact(tolist(
     [
       var.suffix_include_company_name ? local.company_name_short : "",
