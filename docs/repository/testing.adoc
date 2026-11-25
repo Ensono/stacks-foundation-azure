@@ -63,7 +63,7 @@ All tests use `command = apply` to create actual resources during testing. This 
 Tests do **not** create actual Azure resources. The module only generates naming conventions and configuration data using:
 
 * `random_string` resources (for unique seeds)
-* `time_static` resources (for state timestamps)  
+* `time_static` resources (for state timestamps)
 * `local_file` resources (for environment files, when enabled)
 * Data sources from `azapi_client_config` (for Azure tenant/subscription info)
 

@@ -78,3 +78,27 @@ variable "short_name_length" {
   description = "Length of the short name to be used in naming conventions"
   default     = 4
 }
+
+variable "suffix_include_company_name" {
+  type        = bool
+  description = "State if the company name should be included in the naming suffix"
+  default     = true
+}
+
+variable "suffix_include_project_name" {
+  type        = bool
+  description = "State if the project name should be included in the naming suffix"
+  default     = true
+}
+
+variable "suffix_include_location" {
+  type        = bool
+  description = "State if the location should be included in the naming suffix"
+  default     = true
+}
+
+variable "suffix_include_workspace" {
+  type        = bool
+  description = "State if the workspace should be included in the naming suffix"
+  default     = true
+}

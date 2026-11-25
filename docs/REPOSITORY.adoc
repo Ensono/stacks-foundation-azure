@@ -336,7 +336,7 @@ To add custom naming for Azure resources not in the base naming module:
 extended_naming_map = {
   for comp_k, comp_v in module.azure_naming : comp_k => {
     # ... existing entries ...
-    
+
     "new_resource_type" = {
       name = replace(
         lookup(module.azure_naming[comp_k], "storage_account", {}).name_unique,
@@ -375,7 +375,7 @@ mkdir -p test/consumer
 cat > test/consumer/main.tf <<EOF
 module "foundation" {
   source = "../../outputs/module"
-  
+
   company_name = "TestCo"
   location     = "uksouth"
   project      = ["test"]
@@ -473,7 +473,7 @@ All tests use `command = apply` to create actual resources during testing. This 
 Tests do **not** create actual Azure resources. The module only generates naming conventions and configuration data using:
 
 * `random_string` resources (for unique seeds)
-* `time_static` resources (for state timestamps)  
+* `time_static` resources (for state timestamps)
 * `local_file` resources (for environment files, when enabled)
 * Data sources from `azapi_client_config` (for Azure tenant/subscription info)
 

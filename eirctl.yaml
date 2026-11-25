@@ -29,3 +29,10 @@ pipelines:
     - task: github:release
       depends_on:
         - build:number
+
+  precommit-run:
+    - task: install:prek
+      condition: if [ -z "$(ls -A .eirctl/bin/prek* 2>/dev/null)" ]; then exit 0; else exit 1; fi;
+    - task: precommit:run
+      depends_on:
+        - install:prek

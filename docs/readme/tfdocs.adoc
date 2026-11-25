@@ -122,6 +122,30 @@ This should be a JSON string that has been passed to the module from the consumi
 |n/a
 |yes
 
+|[[input_suffix_include_company_name]] <<input_suffix_include_company_name,suffix_include_company_name>>
+|State if the company name should be included in the naming suffix
+|`bool`
+|`true`
+|no
+
+|[[input_suffix_include_location]] <<input_suffix_include_location,suffix_include_location>>
+|State if the location should be included in the naming suffix
+|`bool`
+|`true`
+|no
+
+|[[input_suffix_include_project_name]] <<input_suffix_include_project_name,suffix_include_project_name>>
+|State if the project name should be included in the naming suffix
+|`bool`
+|`true`
+|no
+
+|[[input_suffix_include_workspace]] <<input_suffix_include_workspace,suffix_include_workspace>>
+|State if the workspace should be included in the naming suffix
+|`bool`
+|`true`
+|no
+
 |===
 
 == Outputs

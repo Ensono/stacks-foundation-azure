@@ -1,6 +1,8 @@
 === Workspace Integration
 
-The naming convention automatically includes the Terraform workspace name:
+By default, the naming convention includes the Terraform workspace name.
+Set `suffix_include_workspace = false` to omit it. The following examples use
+the default setting:
 
 [source,bash]
 ----

@@ -13,7 +13,7 @@ module "foundation" {
   environment        = "dev"
   generate_env_files = true
   output_path        = "./generated"
-  
+
   outputs = jsonencode({
     dev = {
       resource_group_name = azurerm_resource_group.main.name
